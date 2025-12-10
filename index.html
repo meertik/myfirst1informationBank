@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банк знаний</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Банк знаний</h1>
+            <p class="subtitle">Платформа для обмена учебными материалами</p>
+        </header>
+
+        <section>
+            <h2>О платформе</h2>
+            <p><strong>Банк знаний</strong> — это платформа, где учащиеся делятся качественными конспектами, шпаргалками, домашними заданиями по сложным темам и успешными примерами решения задач.</p>
+        </section>
+
+        <section>
+            <h2>Преимущества</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <h3>Помощь заболевшим</h3>
+                    <p>Учащиеся, пропустившие занятия, могут быстро найти все необходимые материалы.</p>
+                </div>
+                <div class="benefit">
+                    <h3>Подготовка к экзаменам</h3>
+                    <p>Все материалы структурированы и легко доступны для подготовки.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Типы материалов</h2>
+            <div class="content-types">
+                <div class="type-card">
+                    <h3>📝 Конспекты</h3>
+                    <p>Качественные конспекты уроков</p>
+                </div>
+                <div class="type-card">
+                    <h3>📋 Шпаргалки</h3>
+                    <p>Краткие справочные материалы</p>
+                </div>
+                <div class="type-card">
+                    <h3>📚 Домашняя работа</h3>
+                    <p>Информация по домашнему заданию</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Поиск материалов</h2>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Введите тему или предмет...">
+                <input type="date" id="dateInput" placeholder="Дата выкладывания материала">
+                <button onclick="search()">Поиск</button>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" onclick="filter('all', this)">Все</button>
+                <button class="filter-btn" onclick="filter('notes', this)">Конспекты</button>
+                <button class="filter-btn" onclick="filter('cheat', this)">Шпаргалки</button>
+                <button class="filter-btn" onclick="filter('homework', this)">Домашняя работа</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Материалы</h2>
+            <p class="empty-state" id="emptyState">Материалов пока нет. Добавьте первый файл после входа как администратор.</p>
+            <div class="materials" id="materials"></div>
+        </section>
+
+        <section>
+            <h2>Администрирование</h2>
+            <p>Только администратор может добавлять новые материалы. Введите пароль, чтобы включить режим администратора.</p>
+            <div class="admin-box">
+                <input type="password" id="adminPassword" placeholder="Пароль администратора">
+                <button onclick="adminLogin()">Войти как администратор</button>
+            </div>
+            <p id="adminStatus" class="admin-status">Режим администратора: выключен</p>
+        </section>
+
+        <section>
+            <h2>Поделитесь материалами</h2>
+            <p>Только администратор может загружать материалы. Заполните форму и прикрепите файл.</p>
+            <div class="upload-form">
+                <div class="field">
+                    <label for="subjectInput">Предмет</label>
+                    <input type="text" id="subjectInput" placeholder="Например, Математика">
+                </div>
+                <div class="field">
+                    <label for="topicInput">Тема</label>
+                    <input type="text" id="topicInput" placeholder="Например, Квадратные уравнения">
+                </div>
+                <div class="field">
+                    <label for="typeSelect">Тип материала</label>
+                    <select id="typeSelect">
+                        <option value="notes">Конспект</option>
+                        <option value="cheat">Шпаргалка</option>
+                        <option value="homework">Домашняя работа</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="fileInput">Файл (изображения или документы)</label>
+                    <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx,.txt">
+                </div>
+                <button class="upload-btn" id="uploadBtn" onclick="upload()" disabled>📤 Загрузить материал</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
